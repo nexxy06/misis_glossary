@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Glossary</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+.toc { margin-bottom: 40px; }
+.toc a { margin-right: 10px; font-size: 18px; text-decoration: none; color: #0056b3; }
+.toc a:hover { text-decoration: underline; }
+.letter-section { margin-top: 40px; }
+.letter-title { font-size: 28px; font-weight: bold; border-bottom: 2px solid #333; margin-bottom: 20px; }
+.term-entry { margin-bottom: 30px; }
+.term-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+.field { margin-left: 20px; margin-bottom: 10px; }
+.field-title { font-weight: bold; display: block; margin-bottom: 3px; }
+img { max-width: 100%; height: auto; border: 1px solid #ccc; padding: 4px; }
+</style>
+</head><body>
+<h1>Глоссарий к лекции 19: Основы IPv6 </h1>
+<small>Выполнено студентами группы БИВТ-23-6:<br></small>
+<small>Панов Н. В.,<br></small>
+<small>Пешков М.Е.,<br></small>
+<small>Сазонов А. К.<br></small>
+<div class="toc"><br><strong>Навигация:</strong><br>
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#G">G</a>
+<a href="#H">H</a>
+<a href="#I">I</a>
+<a href="#L">L</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#U">U</a>
+<a href="#А">А</a>
+<a href="#З">З</a>
+<a href="#И">И</a>
+<a href="#К">К</a>
+<a href="#М">М</a>
+<a href="#О">О</a>
+<a href="#П">П</a>
+<a href="#Р">Р</a>
+<a href="#С">С</a>
+<a href="#Ф">Ф</a>
+<a href="#Ц">Ц</a>
+<a href="#Ш">Ш</a>
+</div>
+<div class="letter-section" id="A">
+<div class="letter-title">A</div>
+<div class="term-entry">
+<div class="term-title">Anycast-адрес</div>
+<div class="field"><span class="field-title">Определение:</span> Anycast-адрес присваивается нескольким интерфейсам, обычно на разных узлах. Пакеты, отправленные на anycast-адрес, доставляются ближайшему (по маршруту) интерфейсу. Это полезно для балансировки нагрузки и повышения отказоустойчивости.​ https://datatracker.ietf.org/doc/html/rfc4786</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Anycast-адрес в IPv6 назначается нескольким узлам, но данные, отправленные по этому адресу, достигают только одного — ближайшего по маршруту. Это упрощает масштабирование сервисов и повышает отказоустойчивость. Anycast улучшает время отклика за счёт географической близости узла. В отличие от multicast, он не ориентирован на групповую доставку. https://en.wikipedia.org/wiki/Anycast</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWJt5XeestIU6nUJ-60XAzizrrEDJo3VDASmi6qPgJHtkZrYTGbVlArwjfsmXcQIFUx5iJI4L-rCg=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> В моем представлении anycast — это способ сказать: «отправь туда, где это сработает быстрее всего». Это как сеть филиалов, и ты просто идёшь в ближайший. Очень полезно в распределённых сервисах — например, когда нужно обращаться к DNS или авторизационным серверам с минимальной задержкой. Упрощает распределение трафика по точкам входа в сеть.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Authentication Header</div>
+<div class="field"><span class="field-title">Определение:</span> Authentication Header используется для обеспечения целостности и аутентичности данных в IPv6. Он добавляет криптографическую подпись к пакету, что позволяет получателю проверить, что данные не были изменены и что они действительно были отправлены авторизованным источником. Источник:https://support.huawei.com/enterprise/en/doc/EDOC1100174721/bba11cdd/ipv6-packet-format</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Authentication Header (AH) — это расширенный заголовок IPv6, обеспечивающий целостность, аутентификацию и защиту от повторов пакета. Он добавляет криптографическую хэш-сумму (например, с использованием HMAC-SHA-256), позволяя получателю убедиться, что данные не были изменены в пути и действительно отправлены заявленным отправителем. В отличие от ESP, AH не обеспечивает шифрование, но защищает весь IP-пакет, включая неизменяемые поля заголовка.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVs1vwdpiMvhkV8nFjmORn37ena2b0IeVOblsW-nHlxKYkTYLs2G0_vSOH0gnMHCyHdRYuJG-R4X0aZPTCESFkdS1SH34Rv4lXKQ6zY-Ty0yMSeaEW6t4fVEp9cMYfTGiMwXyIZ1H_M59KCrNOMk_qE0lJOS7tX1A=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> AH — это как пломба на важном документе: если её повредить, сразу видно, что кто-то вскрывал конверт. Например, в корпоративной сети AH может проверять, что пакеты от филиала не подделаны злоумышленником. Однако из-за сложности обработки (например, NAT-совместимости) его часто заменяют ESP или комбинированными методами. Тем не менее, в строгих security-политиках AH остаётся ценным инструментом.</div>
+</div>
+</div>
+<div class="letter-section" id="B">
+<div class="letter-title">B</div>
+<div class="term-entry">
+<div class="term-title">Basic IPv6 Header</div>
+<div class="field"><span class="field-title">Определение:</span> Basic IPv6 Header - состоит из 40 байт и включает в себя поля, такие как версия, приоритет, метка потока, длина полезной нагрузки, следующий заголовок, время жизни (TTL), адреса источника и назначения. Источник:https://support.huawei.com/enterprise/en/doc/EDOC1100174721/bba11cdd/ipv6-packet-format</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Basic IPv6 Header можно описать как минимально необходимую часть IPv6-пакета, обеспечивающую базовую маршрутизацию, без дополнительных опций, которые вынесены в отдельные расширенные заголовки. Его ключевая особенность — фиксированная структура, что ускоряет обработку в сетевом оборудовании.Источник:https://www.geeksforgeeks.org/internet-protocol-version-6-ipv6-header/</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWO7a9bh-Ocmorjgc6N7IDTU9t_CO1IGaNnrg2e-XUzloO4jCrIdjm8cqOn41ExF9zzcwYCvGdZN4HANQU_rlFWM2YCYeRjCXSjFUqEhwBwj5JmqYo25dpPyVfjBa0-91xtfbZEETpnFbsD2qDRS4HlgBZHSVtXZrRoYlEApxWPXyQQ=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> меня Basic IPv6 Header — это «визитная карточка» пакета, указывающая, куда и как его доставить. Например, если пакет идёт от моего компьютера к YouTube, заголовок содержит адреса IPv6 (от меня → к серверу), тип данных (например, TCP) и TTL (чтобы пакет не ходил вечно). Упрощённый формат помогает маршрутизаторам быстрее его обрабатывать.</div>
+</div>
+</div>
+<div class="letter-section" id="D">
+<div class="letter-title">D</div>
+<div class="term-entry">
+<div class="term-title">DAD (Duplicate Address Detection)</div>
+<div class="field"><span class="field-title">Определение:</span> DAD — это процесс проверки уникальности IPv6-адреса перед его использованием. Устройство отправляет запрос в сеть, чтобы убедиться, что адрес не занят другим узлом. Это предотвращает конфликты адресов в сети.https://supportportal.juniper.net/s/article/How-IPv6-Duplicate-address-detectionDAD-works-on-Junos-devices?language=en_US</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> DAD — это механизм IPv6, проверяющий, не занят ли предполагаемый адрес другим устройством в сети. Он используется при конфигурации адреса, например, с помощью SLAAC. Устройство отправляет специальные запросы в сеть, и если не получает ответа — адрес считается уникальным. Это предотвращает конфликты адресов в сети.https://datatracker.ietf.org/doc/html/rfc4429</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xU3_V6DsBc5mn-XoctWkV2C0JvzFZTjtjK_2wyBydMNO1LPTT9f6fR1ioIszeLZDkKIi1x0VVrGsu1KAp32Mqq3HFzxnwGVlHow1rXqJ__4rL-8IqQ0Jen99ZTzqSPcCwDkJm0-tll_wvaNAaPC2RbGJ9miGNBdxc39XNGP3Ik=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я представляю DAD как "спросить в комнате: 'Это место свободно?'" перед тем, как сесть. Это очень важный механизм безопасности при автоконфигурации. Он помогает избежать странных сбоев, когда два устройства случайно используют один адрес. Особенно нужен в сетях без централизованного контроля.</div>
+</div>
+</div>
+<div class="letter-section" id="E">
+<div class="letter-title">E</div>
+<div class="term-entry">
+<div class="term-title">EUI-64</div>
+<div class="field"><span class="field-title">Определение:</span> EUI-64 — это метод генерации 64-битного идентификатора интерфейса на основе 48-битного MAC-адреса. Он включает вставку FFFE в середину MAC-адреса и инверсию определённого бита. EUI-64 обеспечивает уникальность идентификатора интерфейса.https://datatracker.ietf.org/doc/html/rfc4291</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> EUI-64 — это способ автоматического создания 64-битного идентификатора интерфейса на основе MAC-адреса устройства. Он применяется при формировании IPv6-адреса, особенно в SLAAC. В процессе MAC-адрес преобразуется с добавлением специфической вставки и изменением одного бита. Это позволяет уникально идентифицировать интерфейс в сети.https://en.wikipedia.org/wiki/IPv6_address#Modified_EUI-64</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUN41DDCuuyqSPFJSJqYVdWiKAeq3YqpxJjB-2x8I8o93_Xdyb8p2VuxrSa0eJrf7fWAHWR304otMOykHxgQCzPg84=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> EUI-64 для меня — это как отпечаток пальца устройства, встроенный в его адрес. Удобен, когда нужно быстро сгенерировать уникальный IPv6-адрес без централизованной настройки. Иногда, правда, это может быть минусом — ведь MAC-адрес устройства становится видимым. Поэтому я аккуратно подхожу к его использованию в конфиденциальных сетях.</div>
+</div>
+</div>
+<div class="letter-section" id="G">
+<div class="letter-title">G</div>
+<div class="term-entry">
+<div class="term-title">GUA (Global Unicast Address)</div>
+<div class="field"><span class="field-title">Определение:</span> GUA — это глобально уникальный unicast-адрес, используемый для связи в интернете. Он начинается с префикса 2000::/3 и обеспечивает уникальность адресации в глобальной сети. GUA позволяет устройствам напрямую взаимодействовать через интернет.​ https://datatracker.ietf.org/doc/html/rfc4291</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> GUA — это глобальный индивидуальный адрес IPv6, предназначенный для уникальной идентификации устройства в интернете. Он аналогичен публичному адресу в IPv4. Такие адреса выдаются провайдерами и могут маршрутизироваться по глобальной сети. Их структура включает префикс глобальной маршрутизации, идентификатор подсети и идентификатор интерфейса. https://gclnk.com/pbZoQ0LB</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xX7BGq0jX3EUswhT58jgft-2bS-LW8HUFelnP8T1HzePK73wGRa38615EL3zPVHvDVxJr8CyLqBQuDfJgDn=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я воспринимаю GUA как "паспорт" устройства в интернете — он даёт ему возможность выходить за пределы локальной сети. С ним можно получить доступ к глобальным сервисам, API и облакам. Особенно важно понимать структуру GUA при работе с корпоративными сетями, где безопасность и управление подсетями имеют значение. Его использование требует продуманной настройки фаерволов и маршрутов.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Gratuitous ARP</div>
+<div class="field"><span class="field-title">Определение:</span> Это специальный ARP-запрос, который устройство отправляет в сеть без явного запроса от другого узла. Он содержит IP-адрес отправителя в полях Sender Protocol Address и Target Protocol Address, а MAC-адрес отправителя в Sender Hardware Address. Такой пакет рассылается широковещательно (на MAC FF:FF:FF:FF:FF:FF) и служит для обновления ARP-кэшей других устройств в сети.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "саморекламный" ARP-пакет, с помощью которого устройство уведомляет сеть о своём IP- и MAC-адресе, даже если никто явно не спрашивал. Это нужно для предотвращения конфликтов и синхронизации ARP-таблиц.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWMjw-9Bvc2wi49TSyCYeEjRSlGnhZhY0HUflCbhtpRD77XOAIJ_yES8xsrY2myrRMRU7QnZAHkl9rncl4Tou17ecXbnMQCzSudthQv4AgQtKqiekIwfyNq39_WlgDhdf8ebKzyO5-lPOJ9HyfoSMLbcSf6onR7snjfyP95CYYLu-VyH9M=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Gratuitous ARP — это как громкое объявление: "Внимание! Теперь IP 192.168.1.10 — это я, MAC 00:1A:2B:3C:4D:5E!"</div>
+</div>
+</div>
+<div class="letter-section" id="H">
+<div class="letter-title">H</div>
+<div class="term-entry">
+<div class="term-title">Hop-by-Hop Options Header</div>
+<div class="field"><span class="field-title">Определение:</span> Hop-by-Hop Options Header используется для передачи опций, которые должны обрабатываться каждым маршрутизатором на пути к получателю. Это может включать параметры для управления трафиком или другие настройки, которые должны быть применены на каждом этапе маршрутизации. Источник:https://support.huawei.com/enterprise/en/doc/EDOC1100174721/bba11cdd/ipv6-packet-format</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Hop-by-Hop Options Header — это расширенный заголовок IPv6, который содержит информацию, требующую обработки каждым промежуточным узлом (маршрутизатором) на пути следования пакета. Он должен располагаться сразу после основного IPv6-заголовка и используется для специальных функций, таких как Jumbo Payload или Router Alert.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVIv4id8eu3LvYt-dngahGmK9lIASdgRKzrVVB6Sq3WUoBchrcI0WlnJ363hy_TjBNsjXBaDTCK9efHOtOah_h1yL94cOtPD72NCkAb_l3VPeDH10OWP6jf0Yoew57DtBvMR75UUPbkvpLq1RYHa4ZnMxiUeDcdtWibdTo0m3-bonqDrWnjM59Gmis8DmhxQMlFtcFIxS1GEmhx9Qt3QGwGX8-lpKqJg1AypGKxdQ7JBYQ1RdK0VzEcr9c8jUWC05baRdxGIXr4UCibZc2EcLgPctAOBvtm02clEG2SG7LAkQ=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Hop-by-Hop Options — это как пометка «Вскрыть немедленно» на письме: например, если в пакете стоит Router Alert, маршрутизаторы понимают, что нужно проверить его содержимое (например, для QoS или Multicast-управления). Однако из-за накладных расходов его используют редко — только когда действительно нужно что-то «критичное» для всей сети.</div>
+</div>
+</div>
+<div class="letter-section" id="I">
+<div class="letter-title">I</div>
+<div class="term-entry">
+<div class="term-title">ICMPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Расширение ICMP для IPv6, обеспечивающее диагностику и поддержку протоколов вроде NDP. Участвует в SLAAC, DAD и других процессах. http://xgu.ru/wiki/IPv6</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> ICMPv6 — это протокол управления сообщениями в IPv6, аналог ICMP в IPv4, но более мощный. Он используется для обмена служебной информацией, такой как ошибки доставки, запросы Echo (ping), работа NDP и DAD. Он критически важен для функционирования IPv6-сетей. Без него не работают многие базовые механизмы. https://gclnk.com/pbZoQ0LB</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xW2N5zaq8aWxVeOanFlrjwQKKnSHunh_yfkg-FRgtrjD6s_i_hk-xCKL-ZJecttJYhihOA_vdcnL1j5KOe79FqT4gMI18alnbwdSelapZGT2SyIxyBVxBqrOZE9q0HtSRtOkkyWPpJKIHVBsI9lQuyZehc-4Yl1nB183I_SjiMkj4bp0sKtiCCeISI=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> ICMPv6 — это как «система нервных сигналов» IPv6: всё, от проверок до обнаружения соседей, идёт через него. Я регулярно использую его при диагностике сетей — особенно когда нужно понять, доступен ли хост или работает ли маршрутизатор. Он настолько важен, что его блокировка фаерволом часто ломает работу сети. Его надо не только понимать, но и уважать.</div>
+</div>
+</div>
+<div class="letter-section" id="L">
+<div class="letter-title">L</div>
+<div class="term-entry">
+<div class="term-title">LLA (Link-Local Address)</div>
+<div class="field"><span class="field-title">Определение:</span> LLA — это адрес, действующий только в пределах одного канала связи. Он начинается с префикса FE80::/10 и используется для взаимодействия между соседними узлами. LLA автоматически назначается каждому интерфейсу.https://gclnk.com/aJj8WRco</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Link-Local Address — это адрес, автоматически присваиваемый интерфейсу IPv6 и действующий только в пределах одной канальной связи (сегмента). Он начинается с префикса FE80::/10 и используется для локального взаимодействия, например, автоконфигурации и обнаружения соседей. Не маршрутизируется за пределами канального сегмента.https://www.oreilly.com/library/view/ipv6-fundamentals-a/9780134670584/ch06.html</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUuaxGLel9Swbu-UAc4vH7ZsJnVeoEcXGRusJxPEVHDIv5pcJuiXpBaogkUBZs66Vk-z5DVJA2CsC9mOeylS6dK1LEBmeKFlsEVVBFMoshaWlC1GSc0fJ8GAxjhlsSMy64h0GZMLKPqsyE8R0X-uDAJqgdfeuRBrnezxoQC7-nr=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> LLA для меня — это как сосед, с которым ты можешь поговорить, не выходя из квартиры. Эти адреса незаменимы при инициализации устройств и установлении базовых соединений. Я часто вижу их при диагностике сетей, когда важно понять, что хотя бы базовая связь между узлами есть. Это первая "ниточка" в сетевом взаимодействии.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Loopback-адрес IPv6 (::1)</div>
+<div class="field"><span class="field-title">Определение:</span> Это адрес обратной связи, используемый для тестирования интерфейса. Все пакеты, отправленные на него, остаются на устройстве. Аналог 127.0.0.1 в IPv4.https://ru.wikipedia.org/wiki/Loopback</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Loopback-адрес ::1 — это специальный IPv6-адрес, используемый для обращения устройства к самому себе. Он аналогичен адресу 127.0.0.1 в IPv4. Применяется для тестирования стека TCP/IP и работы приложений без выхода в сеть. Все пакеты, отправленные на ::1, остаются внутри устройства.http://xgu.ru/wiki/IPv6</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUN3vDwoNSbGNnm3fjT7dEIXAyf5_Bmm8wjF1jo6EuCAIcWo_PzUUj5CSXjP3EybxHOEJjHyrtq9oAKw-YgmEDOVN6rygdeoW8N_JTbY5XakWMJ9e5fWJJqvXru9jqukTrBxPJ-Dd6OGoW3GNP696Z6VMr0kgSu701GqMzm_yDs9_Dtvw=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> ::1 — это как посмотреться в зеркало: устройство проверяет, работает ли оно само. Я использую его, чтобы протестировать серверы или службы на локальной машине без риска что-то поломать в сети. Это первый адрес, с которого стоит начинать диагностику, если «ничего не работает». Без него не обойтись ни при разработке, ни при администрировании.</div>
+</div>
+</div>
+<div class="letter-section" id="M">
+<div class="letter-title">M</div>
+<div class="term-entry">
+<div class="term-title">Multicast-адрес</div>
+<div class="field"><span class="field-title">Определение:</span> Multicast-адрес используется для доставки пакетов группе интерфейсов, обычно принадлежащих разным узлам. Это позволяет эффективно передавать данные множеству получателей одновременно. Multicast-адреса начинаются с префикса FF00::/8.​ https://tools.ietf.org/html/rfc1112</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Multicast — это способ адресации, позволяющий доставлять один и тот же пакет сразу группе узлов. Он эффективен при вещании, когда необходимо отправить данные нескольким получателям, не дублируя трафик. Используется в видео-конференциях, IPTV, и сетевом управлении. В отличие от широковещания, multicast ограничен заданной группой.https://goo.su/nKuq1r4</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVOGSSVdzwO464GdMWRHK1JwvaKsmicI0anXUDbjYWXa7nitPuJcnxMHH0oUHqshWK20KK6e6Bc=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я воспринимаю multicast как групповое сообщение — вроде рассылки в мессенджере, где информация должна дойти до всех участников группы. Это экономит сетевые ресурсы и ускоряет доставку. Я сталкивался с этим при настройке IPTV и сетевого мониторинга. В некоторых проектах multicast был ключевым решением для уменьшения нагрузки на каналы связи.</div>
+</div>
+</div>
+<div class="letter-section" id="N">
+<div class="letter-title">N</div>
+<div class="term-entry">
+<div class="term-title">NDP (Neighbor Discovery Protocol)</div>
+<div class="field"><span class="field-title">Определение:</span> NDP — это протокол, используемый в IPv6 для обнаружения соседних устройств, определения их MAC-адресов и других функций. Он заменяет протокол ARP, используемый в IPv4. NDP играет ключевую роль в автоматической конфигурации и управлении сетью.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> NDP — это протокол IPv6, выполняющий функции, аналогичные ARP в IPv4, но гораздо более расширенные. Он используется для обнаружения соседей в одной сети, определения MAC-адресов, маршрутизаторов и проверки доступности узлов. В рамках NDP осуществляется автоконфигурация и проверка на дубликаты адресов. Он работает с использованием ICMPv6 сообщений.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWTmm9v9p5ASqAzo97RbK3zHotO8GWSoCt3zjAaJd1KhwavQK2oKAGAa_K-b0A-WmwOqkwyi8H8YBL_2Is7i1riNV5o-is1ICflCHMEN06Zxlj8AWev8BH-9nn7RSShFarBxVq4A-uq1lcFyBedCEL2sTOvE9yNUHKtRWJw1Ymp=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я представляю NDP как “организатора” внутри IPv6-сети — он знакомит всех между собой, говорит, где чей адрес, и следит, чтобы не было путаницы. Он особенно полезен, когда нужно автоматизировать адресацию и сделать сеть «самонастраивающейся». Я сталкивался с ним при отладке сетей, когда важно понять, почему одно устройство «не видит» другое. Это невидимая, но крайне важная часть сетевого взаимодействия.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Next Header</div>
+<div class="field"><span class="field-title">Определение:</span> Next Header — это поле в IPv6-заголовке или расширенном заголовке, указывающее тип следующего заголовка или протокола верхнего уровня (например, TCP, UDP или ICMPv6). Оно аналогично полю «Protocol» в IPv4, но также может ссылаться на дополнительные расширенные заголовки IPv6, такие как Hop-by-Hop Options или Routing Header. Источние:https://support.huawei.com/enterprise/en/doc/EDOC1100174721/bba11cdd/ipv6-packet-format</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Next Header можно рассматривать как «указатель», который определяет, что идёт дальше в пакете: либо следующий расширенный заголовок IPv6, либо непосредственно полезная нагрузка (например, сегмент TCP или дейтаграмма UDP). Это позволяет IPv6 поддерживать гибкую структуру пакета без фиксированного формата.</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Next Header — как оглавление в книге: оно говорит маршрутизатору или конечному устройству, как обрабатывать пакет дальше. Например, если Next Header = 6 (TCP), устройство передаст данные стек TCP; если там значение 0 (Hop-by-Hop Options), оно сначала обработает этот расширенный заголовок. Это делает IPv6 более модульным и эффективным.</div>
+</div>
+</div>
+<div class="letter-section" id="R">
+<div class="letter-title">R</div>
+<div class="term-entry">
+<div class="term-title">RFC 791</div>
+<div class="field"><span class="field-title">Определение:</span> RFC 791 (Internet Protocol, 1981), IPv4 — это протокол сетевого уровня, который обеспечивает передачу данных в виде пакетов (датаграмм) между устройствами в IP-сетях. Формат IPv4 включает 20-байтовый заголовок с полями для версии, длины, типа сервиса, идентификатора, флагов, смещения фрагмента, времени жизни (TTL), протокола, контрольной суммы, а также IP-адресов отправителя и получателя Источник:https://rfc.com.ru/rfc791.htm#bookmark2</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> IPv4 - 32-битная адресационная схему, используемую для идентификации устройств в сети, где каждый пакет содержит информацию, необходимую для маршрутизации от источника к получателю. Основные компоненты заголовка включают TTL (ограничивающий срок жизни пакета), контрольную сумму (для проверки целостности) и фрагментацию (если пакет превышает MTU сети).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVMoqZD0_SV4G-rkRrcbSJFUeX_gRA62kzcbUA6mp6WINA32_k-gcp6clb1c6cPN-DucFnnRNuwED178N19a-R2AAxXc7ticEreUu1BA3HC3jV0Bo7CYA3cSKM6XLr9V5XoCSGRNeG_R9jRT8F9bdXN5IQjHJZDjs5H=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> IPv4 — это фундаментальный протокол интернета, который организует передачу данных в виде пакетов. Например, когда вы открываете сайт, ваш браузер отправляет HTTP-запрос, который упаковывается в IP-пакет с адресами вашего ПК (например, 192.168.1.10) и сервера (например, 142.250.185.206 — Google). Поля заголовка IPv4 помогают маршрутизаторам доставить пакет правильно.</div>
+</div>
+</div>
+<div class="letter-section" id="S">
+<div class="letter-title">S</div>
+<div class="term-entry">
+<div class="term-title">SLAAC (Stateless Address Autoconfiguration)</div>
+<div class="field"><span class="field-title">Определение:</span> SLAAC позволяет устройствам автоматически настраивать свои IPv6-адреса без участия сервера DHCP. Устройства используют префиксы, объявленные маршрутизаторами, и собственные идентификаторы интерфейсов для формирования адресов. Это упрощает процесс конфигурации сети.https://www.networkacademy.io/ccna/ipv6/stateless-address-autoconfiguration-slaac</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> EUI-64 для меня — это как отпечаток пальца устройства, встроенный в его адрес. Удобен, когда нужно быстро сгенерировать уникальный IPv6-адрес без централизованной настройки. Иногда, правда, это может быть минусом — ведь MAC-адрес устройства становится видимым. Поэтому я аккуратно подхожу к его использованию в конфиденциальных сетях.https://www.juniper.net/documentation/us/en/software/junos/security-services/topics/topic-map/ipv6-neighbor-discovery-securing.html</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWHkaDp6D3i2IJ1va5hzgme3OvhUeCNN-l1RT84Rygi9sCemyJXA0bBnCjs-X5k1NEddjj0KgWT24b7oMpvr-433dBALek6NYKIf44D97JinyQcfmwIcb45WMGJGhn7sp5mC4DmIlbmuqw_BduvpElqF5egnjr2X94lCEgbSOfyXOOAFo0kDw=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> SLAAC — это как автозаполнение анкеты: устройство само "догадается", какой адрес ему нужен. Это экономит время на ручную настройку и уменьшает зависимость от серверов. Я использую SLAAC в тестовых стендах или временных сетях, где нужно быстро всё настроить. Главное — понимать, что без DHCP можно потерять контроль над сопоставлением адресов.</div>
+</div>
+</div>
+<div class="letter-section" id="U">
+<div class="letter-title">U</div>
+<div class="term-entry">
+<div class="term-title">ULA (Unique Local Address)</div>
+<div class="field"><span class="field-title">Определение:</span> ULA — это уникальный локальный unicast-адрес, предназначенный для использования внутри организации. Он начинается с префикса FD00::/8 и не маршрутизируется в интернете. ULA обеспечивает уникальность адресов в пределах локальной сети. https://en.wikipedia.org/wiki/Unique_local_address</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> ULA — это тип IPv6-адреса, предназначенный для использования внутри локальной сети. Он не маршрутизируется в интернете и аналогичен приватным IPv4-адресам (например, 192.168.x.x). Эти адреса удобны для внутренних коммуникаций, тестирования или изолированных сетей. Их структура включает префикс FD00::/8 и псевдоуникальный идентификатор. https://gclnk.com/Uu4eOcYw</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUZvO_aaV8UfW50FSOW2vpoT_5WIdYN0Ehf054PRmCr5xfkQ4jk9xD6Tz7JauhB5-PGVS0CtZ0WP9O-hEbKMdilO6CCC-bRX3jTP0HmPRDkS7SgJCf8YGsg=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Для меня ULA — это как закрытая сеть в организации, где всё "своё" и никуда не выходит. Я использую такие адреса, когда настраиваю домашние или корпоративные системы, не нуждающиеся в доступе к внешнему интернету. Они удобны, когда нужно обеспечить адресацию и маршрутизацию внутри, но с изоляцией от внешнего мира. Это своего рода "внутренний интернет".</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Unicast-адрес</div>
+<div class="field"><span class="field-title">Определение:</span> Unicast-адрес предназначен для идентификации одного конкретного интерфейса в сети. Пакеты, отправленные на unicast-адрес, доставляются только одному получателю. Это основной тип адресации в сетях, обеспечивающий прямую связь между двумя узлами.​ https://www.ripe.net/manage-ips-and-asns/ipv6/ipv6-address-types/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Unicast-адрес — это уникальный адрес, используемый для индивидуальной передачи данных от одного узла к другому. Такой способ передачи гарантирует, что пакет попадёт строго к заданному получателю. Он является основным типом адресации в IPv6 и используется практически для всех соединений между устройствами. Отличается предсказуемостью маршрута и контролем доставки https://goo.su/UKeFG</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVCRLbMK7bz8UgJwvyIJsSimQTISUqUbvqtYHOKDYsvCG8aKNS540-ZPI96yVLPHp-ryUaJjxb0vA=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Unicast я воспринимаю как точечное общение между двумя конкретными участниками. Это как отправить письмо по почте: у него один отправитель и один получатель. В моей практике это основной тип связи между клиентом и сервером, особенно в системах, где важна индивидуальность сессии. Он используется почти во всех стандартных соединениях, включая веб и почту.</div>
+</div>
+</div>
+<div class="letter-section" id="А">
+<div class="letter-title">А</div>
+<div class="term-entry">
+<div class="term-title">Агрегированный маршрут</div>
+<div class="field"><span class="field-title">Определение:</span> Это объединение нескольких последовательных IP-подсетей в одну общую запись в таблице маршрутизации с целью уменьшения её размера и оптимизации процесса маршрутизации. Также известен как суммарный маршрут (route summarization) или суперсеть (supernetting).</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это метод сжатия маршрутной информации, при котором несколько сетей с общим префиксом представляются в таблице маршрутизации как одна запись, сокращая нагрузку на маршрутизаторы и ускоряя поиск маршрутов.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXehVKyfaSbSruDTZDArxwJxc4WcU7zJFPhjrhxNWYlW0_z2kYR-wRxoPpgY81JU4Il21rJROCiBTAn5z4gdeP-f939HLrOcE8Me9k_UGnkE4bw45X6zbo7vtgs6RDAJr5jYzcuDRFlk6612-kOgAuMWzljAgllOLbQpw=s365-w365-h117" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Агрегированный маршрут — как почтовый индекс: Отдельные адреса (ул. Ленина, д. 1, ул. Ленина, д. 2) — это конкретные подсети, Индекс 123456 — это агрегированный маршрут для всего района, Почтальону (маршрутизатору) не нужно помнить каждый дом — достаточно знать индекс.</div>
+</div>
+</div>
+<div class="letter-section" id="З">
+<div class="letter-title">З</div>
+<div class="term-entry">
+<div class="term-title">Заголовки IPv4</div>
+<div class="field"><span class="field-title">Определение:</span> Заголовки IPv4 включает такие поля, как версия, длина заголовка, тип сервиса, общая длина, идентификатор, флаги, время жизни (TTL), протокол, контрольная сумма и адреса источника и назначения. Источник: https://demo.ciscostr.ru/ITN_RU/8.2.2</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Заголовок IPv4 можно рассматривать как "конверт" для данных в сетевом обмене, где метаданные определяют, как пакет должен быть обработан. В отличие от IPv6, где заголовок упрощён, IPv4 содержит больше полей для управления фрагментацией, QoS (качество обслуживания) и проверки целостности. Например, поле TTL предотвращает бесконечную циркуляцию пакета в сети, уменьшаясь на 1 при каждом проходе через маршрутизатор.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXtvDlKM6EjwH4dmVrJsvLZkRigwQ_6bB9TuogpXwiHl7dWI9dOzR1QQ0JZjP4Ld1vUkIv8ZBiV5CKdGH9S_Mump6rVpOE3F1RLWP06Stdxer6kQ37NEDDbgRfv3yiTv5A=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Для меня заголовок IPv4 — это как "паспорт" пакета: без него данные не смогут найти путь в сети. Вот ключевые поля и их роль:    Version (4 бита): Указывает на IPv4 (значение 4).    IHL (4 бита): Длина заголовка в 32-битных словах (обычно 5 для 20 байт).    TTL (8 бит): "Срок жизни" пакета. Например, если TTL=64, пакет "умрёт" после 64 переходов между роутерами.    Protocol (8 бит): Определяет следующий протокол (например, 6 для TCP, 17 для UDP).    Source/Destination IP (по 32 бита): Адреса отправителя и получателя.Пример: Когда вы открываете сайт, ваш браузер отправляет HTTP-запрос, упакованный в TCP-сегмент, который помещается в IP-пакет с таким заголовком. Маршрутизаторы смотрят на Destination IP и TTL, чтобы доставить пакет, а Control Sum проверяет, не был ли он повреждён в пути.</div>
+</div>
+</div>
+<div class="letter-section" id="И">
+<div class="letter-title">И</div>
+<div class="term-entry">
+<div class="term-title">Идентификатор подсети</div>
+<div class="field"><span class="field-title">Определение:</span> Это поле в IPv6-адресе, позволяющее организации создавать внутренние подсети. Оно следует сразу за префиксом маршрутизации и составляет 16 бит. Упрощает управление сетью.https://gclnk.com/eYjEozbI</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Идентификатор подсети в IPv6 определяет конкретную логическую подсеть внутри более крупной сети. Он входит в состав 64-битного сетевого префикса и используется для организации адресного пространства. С его помощью можно логически делить большую сеть на множество меньших. Это важно для маршрутизации и управления.https://selectel.ru/blog/subnet-mask/</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVXleOB05Hld15gBp53Ho4iMJLCEsTyKKY5QvtwMRaMtWjoyOALuW4S_PmAnIc5A0nNHUA-xS_2fWao5xW-_5JN_863SlOU6k4g1XLM-sgaytSatATejriZF7d5q0xPsnbe3q0T-Z89oovNMAZRi9dn4KeMwX0GKXlvasrL-YpM=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я вижу идентификатор подсети как “домовой номер” внутри улицы: все знают улицу (префикс), а номер дома говорит, куда конкретно идти. При проектировании сетей я использую этот элемент для структурирования и контроля. Он особенно удобен, когда нужно управлять доступом или сегментировать сеть по отделам или функциям.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Иерархическая структура адресного пространства</div>
+<div class="field"><span class="field-title">Определение:</span> Иерархическая структура адресного пространства позволяет более эффективно маршрутизировать трафик. Адреса IPv6 могут быть организованы в группы, что упрощает управление и распределение адресов, а также улучшает маршрутизацию. Источник: https://intuit.ru/studies/courses/11157/1119/lecture/17423?page=2</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Иерархическая структура адресного пространства — это модель представления данных, в которой каждый элемент имеет уникальный путь, определяемый его положением в дереве зависимостей. Альтернативно её можно рассматривать как систему вложенных контейнеров, где доступ к содержимому возможен только через последовательное прохождение уровней. Например, в DNS домены (например, subdomain.example.com) строятся иерархически, начиная с корневого домена (.com).Источник:https://timeweb.com/ru/community/articles/protokol-ipv6-chto-eto-takoe-i-kak-on-rabotaet</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Иерархическая структура адресного пространства — это модель представления данных, в которой каждый элемент имеет уникальный путь, определяемый его положением в дереве зависимостей. Альтернативно её можно рассматривать как систему вложенных контейнеров, где доступ к содержимому возможен только через последовательное прохождение уровней. Например, в DNS домены (например, subdomain.example.com) строятся иерархически, начиная с корневого домена (.com).</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Интернет вещей</div>
+<div class="field"><span class="field-title">Определение:</span> Интернет вещей (IoT) — это сеть физических объектов («вещей»), оснащенных датчиками, программным обеспечением и другими технологиями для обмена данными с другими устройствами и системами через интернет. Источник:https://trends.rbc.ru/trends/industry/5db96f769a7947561444f118</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> IoT - совокупность устройств, подключенных к интернету, которые собирают, передают и обрабатывают данные без прямого вмешательства человека, обеспечивая автоматизацию и аналитику.Источник:https://www.kaspersky.ru/resource-center/definitions/what-is-iot</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVL8NCkLbjrxlO19r6ZD10gmN2Te9xWVLUvH7QZ6yjMTBapBBJ3yC6cS0EsrZX3eDpqZ0yY9j_-Fw3fWrcR6CiwTCFCJV6ME71oNu7SLwTekAytgNH-R5sZD99njdfT1Er6v7jCWboQZVbULxWxPqfx0q-SVqXhf9g=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> IoT — это экосистема «умных» устройств, которые взаимодействуют между собой для автоматизации процессов. Например, умный дом, где датчики температуры регулируют обогрев, а камеры автоматически отправляют уведомления о подозрительной активности. В промышленности IoT используется для мониторинга оборудования, предотвращая поломки за счет анализа данных с датчиков.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Интерфейс R3</div>
+<div class="field"><span class="field-title">Определение:</span> Это физический или логический порт маршрутизатора (условно обозначенного как R3 в сетевых схемах и лабораторных работах), через который осуществляется подключение к другим сетевым устройствам. Каждый интерфейс имеет уникальное имя (например, GigabitEthernet0/0, Serial0/1/0) и настраивается с параметрами IP-адресации, скорости, режима работы и правил фильтрации трафика.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это точка входа/выхода сетевого трафика на маршрутизаторе R3, определяющая, как устройство взаимодействует с соседними узлами (коммутаторами, другими маршрутизаторами, конечными устройствами).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVo0-JzHxIYjQYRpxUwvoIMT_NGiodX3Zb3KS9I9ebL9UizBK414-p9JK2CedcpCDSqr0o4RqCkikMLbSLRwrNoeDFXokivnznhuLMFN6dUis9kzvrvtxBColth1fcL7G4Ev1QPqWyX2JmRdrpRsFs=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> В сетевом моделировании (Cisco Packet Tracer, GNS3, EVE-NG) R3 — это условное обозначение третьего маршрутизатора в топологии. Его интерфейсы могут выполнять разные роли: LAN-интерфейсы, WAN-интерфейсы, Loopback-интерфейсы</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Интерфейсы машрутизатора</div>
+<div class="field"><span class="field-title">Определение:</span> Это физические или логические порты устройства, через которые оно подключается к другим сетевым устройствам (компьютерам, коммутаторам, другим маршрутизаторам) и передаёт трафик между сетями. Каждый интерфейс имеет уникальный идентификатор (например, GigabitEthernet0/0/1) и может быть настроен с IP-адресом, маской подсети и другими параметрами.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "точки входа и выхода" сетевого трафика, определяющие, как данные поступают в устройство и куда направляются дальше. Они могут быть проводными (Ethernet, Serial) или беспроводными (Wi-Fi), а также виртуальными (Loopback, VLAN).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xW0keMoWBz9aNhOQbOE70W1KVCufQfAQMKV_0GVwkz686_9Kf-cuY5m9UcRKc3ZunP0uaS7Vhow8Wm113bbMScnJCR1nfsYTQb_zQ_qU86CmL1B0SPEsHAT15ziX6nb8GN-iXjFSmVmMv_R3gvBhds7tSTU=s365-w365-h166" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Интерфейсы маршрутизатора — это его "руки", которыми он соединяется с остальной сетью. В зависимости от роли маршрутизатора, интерфейсы могут выполнять разные функции: WAN-интерфейс, LAN-интерфейс, Loopback-интерфейс, SVI - интерфейс</div>
+</div>
+</div>
+<div class="letter-section" id="К">
+<div class="letter-title">К</div>
+<div class="term-entry">
+<div class="term-title">Клиент DHCPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Это устройство или программный компонент, который запрашивает и получает IPv6-адрес, а также другую сетевую конфигурацию (например, адреса DNS-серверов) от DHCPv6-сервера в IPv6-сети. http://xgu.ru/wiki/IPv6</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это узел в сети, который автоматически настраивает свои IPv6-параметры, отправляя запросы серверу DHCPv6 и обрабатывая его ответы, что избавляет от необходимости ручной настройки. https://datatracker.ietf.org/doc/html/rfc4291</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVna7SXnNb_cPgeDQdm4QhHsKNRZCaQxphaumHkToeO8xz-7WdTUd8kK_De65tDqON6Gu6tjYi4dgqv2vfpiOP0GzNEOvxvhpXPrumXQOvtsEHdJZISGVyhchpYFQV6lWMW1xiTledWWjlV_HA8Eg=s365-w365-h121" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> В реальных сценариях клиент DHCPv6 — это, например, компьютер или IoT-устройство, которое при подключении к IPv6-сети автоматически "просит" у DHCPv6-сервера рабочий адрес и настройки. Это удобно в крупных сетях, где ручное назначение адресов непрактично. В отличие от SLAAC (Stateless Address Autoconfiguration), DHCPv6 позволяет централизованно управлять адресами и дополнительными параметрами (DNS, NTP и т. д.).</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Конфигурация IPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Это процесс настройки параметров IPv6-сети на устройстве, включая назначение IP-адреса, выбор шлюза по умолчанию, адресов DNS-серверов и других параметров, необходимых для корректной работы в IPv6-сети.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это совокупность сетевых настроек, определяющих, как устройство взаимодействует в IPv6-сети, включая автоматические (SLAAC, DHCPv6) и ручные методы назначения адресов.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xU_I34BFWuzgfSQ0YhTaGbC0iISdORUFhY-9FoFl9PQEaaFcmo9thgLh-XmLwIzervgwydBYqIE6S1QXg3_BTliAX75UddGCvJ_XTrHUNGe1i_ZSZDLg_Y=s365-w365-h142" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Аналогия: Если IPv4-конфигурация — это получение готового номера в гостинице (DHCP), то IPv6 — это выбор: либо самому придумать номер на основе этажа (SLAAC), либо попросить администратора (DHCPv6), либо написать его от руки (ручная настройка).</div>
+</div>
+</div>
+<div class="letter-section" id="М">
+<div class="letter-title">М</div>
+<div class="term-entry">
+<div class="term-title">Маршрутизатор</div>
+<div class="field"><span class="field-title">Определение:</span> Это сетевое устройство, работающее на 3-м (сетевом) уровне модели OSI и предназначенное для передачи данных между разными IP-сетями. Он анализирует IP-адреса в заголовках пакетов, определяет оптимальный путь их доставки на основе таблицы маршрутизации и перенаправляет трафик между сетями (LAN, WAN, интернет).</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "диспетчер" сетевого трафика, который соединяет разные сети (например, домашнюю LAN и интернет) и принимает решения о пересылке пакетов на основе IP-адресов и протоколов маршрутизации (статических или динамических, таких как OSPF, BGP).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXq1xm2quKH92AOUAHuGYCt3kLyTvbr6aIBB_WYf0i0PgEtaJ5871sv2BhELfvCWPde9TWzZ7AdM3sOIiSf9oF55Qp3UNt-uy9FKskJTPqZGZkPYt9PeyveaxOm3-Bu5m6E61b2YFI3rVDYe6j5SRlmoc10WcqI=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Маршрутизатор — это "мозг" сети, который не просто пересылает данные (как коммутатор), а выбирает путь для каждого пакета.</div>
+</div>
+</div>
+<div class="letter-section" id="О">
+<div class="letter-title">О</div>
+<div class="term-entry">
+<div class="term-title">Основной и расширенный заголовок IPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Основной заголовок содержит необходимую информацию для маршрутизации пакетов. Он включает такие поля, как версия, приоритет, метка потока, длина полезной нагрузки, следующий заголовок и адреса источника и назначения. Расширенные заголовки используются для передачи дополнительной информации, такой как маршрутизация, безопасность и управление. Источник:https://habr.com/ru/articles/253803/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Основной заголовок IPv6 можно сравнить с адресной этикеткой на посылке — содержит минимум данных для доставки. Все дополнительные параметры (как специальные инструкции по обработке) вынесены в отдельные расширенные заголовки, которые цепляются при необходимости. Например, заголовок фрагментации (тип 44) включается только если пакет нужно разбить на части, а ESP (тип 50) — для шифрования.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWjYwESHzTGa4kwBoCt3ukhiiJAGWYFpSdpeCKPJ8QyTWIydvUaYXD78CIedL1Z-Pr6J2vTqrhlF3glXF5i7rXnZJhxjiTvoyDOy7vCUoN0i7ngEGiyxdeBleYn4JNx4ePdaj8ew-FwWiE=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> В реальных сетях основной заголовок IPv6 используется всегда, а расширенные — ситуативно. Например:    Обычный веб-запрос использует только основной заголовок + TCP.    Передача большого файла через UDP добавляет заголовок фрагментации.    VPN-соединение активирует ESP для шифрования.Главные преимущества — скорость (маршрутизаторы обрабатывают только нужные заголовки) и безопасность (встроенная поддержка IPsec).</div>
+</div>
+</div>
+<div class="letter-section" id="П">
+<div class="letter-title">П</div>
+<div class="term-entry">
+<div class="term-title">Поле: Данные расширенного заголовка</div>
+<div class="field"><span class="field-title">Определение:</span> Данные расширенного заголовка содержит информацию, специфичную для конкретного расширенного заголовка. Это может включать параметры маршрутизации, информацию о безопасности или другие данные для обработки пакета. Источник:https://sky.pro/wiki/sql/ipv4-i-ipv6-chto-eto-i-v-chem-raznica/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Поле «Данные расширенного заголовка» — это переменная часть расширенного заголовка IPv6, содержащая специфичную для данного типа заголовка служебную информацию. Его структура и содержание полностью зависят от типа расширенного заголовка (указанного в поле «Следующий заголовок»). Например, в заголовке маршрутизации это поле может содержать список промежуточных узлов, а в заголовке Hop-by-Hop Options — параметры для обработки каждым маршрутизатором на пути.</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Это поле можно рассматривать как «полезную нагрузку» расширенного заголовка — ту часть, где хранятся параметры и настройки, необходимые для выполнения функций, ради которых этот заголовок был добавлен. В отличие от фиксированных полей (как «Длина заголовка»), содержание этого поля интерпретируется согласно спецификации конкретного типа заголовка.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Поле: Длина расширенного заголовка(8 бит)</div>
+<div class="field"><span class="field-title">Определение:</span> Длина расширенного заголовка(8 бит) - указывает на длину расширенного заголовка в 8-байтовых единицах. Это позволяет маршрутизаторам и конечным устройствам правильно обрабатывать и интерпретировать данные, содержащиеся в расширенных заголовках.  Источник:https://sky.pro/wiki/sql/ipv4-i-ipv6-chto-eto-i-v-chem-raznica/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это поле можно рассматривать как «счётчик длины» для расширенного заголовка, измеряющий его размер не в байтах, а в 64-битных единицах. Например, если поле содержит значение 2, реальная длина заголовка составляет (2 + 1) × 8 = 24 байта. Такой формат выбран для экономии пространства — большинство расширенных заголовков компактны и редко превышают несколько 8-байтовых блоков.Источник:https://intuit.ru/studies/professional_retraining/940/courses/409/lecture/9389?page=2</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> При обработке IPv6-пакета маршрутизатор или хост считывает это поле, чтобы: Определить границы заголовка (например, при наличии опций маршрутизации), пропустить ненужные расширенные заголовки, если они не требуют обработки (ускоряя маршрутизацию).Пример:Если пакет содержит заголовок маршрутизации с Длиной = 4, его размер равен (4 + 1) × 8 = 40 байт. Узел, получивший такой пакет, «перемотает» эти 40 байт, чтобы перейти к следующему заголовку или данным.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Получение адреса через SLAAC</div>
+<div class="field"><span class="field-title">Определение:</span> SLAAC (Stateless Address Autoconfiguration) — это метод автоматической настройки IPv6-адреса на устройстве без использования DHCPv6-сервера. Устройство формирует свой адрес на основе сетевого префикса, полученного от маршрутизатора через ICMPv6 Router Advertisement (RA), и своего идентификатора интерфейса (обычно на основе MAC-адреса по алгоритму EUI-64).</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Получение адреса через SLAAC — это процесс, при котором устройство самостоятельно генерирует свой IPv6-адрес, комбинируя глобальный префикс сети (раздаваемый маршрутизатором) и уникальный идентификатор интерфейса, без необходимости централизованного сервера для выдачи адресов.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXes_o1puQe_LN3kZ1GRDKuWOQp4OH5eNAG5p_9YQRvR-vtmYVK63GCKDfVhmKkBdhKNQ4uAkpNga0IE-MT_rQFjmAifa658MCJYPSjGqcM53rMiEcUzksX7Yd4dCif_Puu18HGp6XiSOScBJI_LuMibck_cn1VjtDYGf_uXMbUfsp98zYvW5-DRVsS=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> SLAAC — как получение почтового адреса при переезде: RA-сообщение — это объявление города и улицы (префикс сети), EUI-64 — номер дома и квартиры (генерируется из MAC-адреса), В отличие от DHCPv6 (где адрес выдаёт "почтамт"), здесь устройство "само выбирает" номер квартиры.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Преимущества IPv6: Практически бесконечное адресное пространство</div>
+<div class="field"><span class="field-title">Определение:</span> Практически бесконечное адресное простарнство: в то время как IPv4 использует 32-битные адреса (что позволяет создать около 4,3 миллиарда уникальных адресов), IPv6 использует 128-битные адреса, что позволяет создать 340 undecillion (3.4 × 10^38) уникальных адресов. Источник:https://sky.pro/wiki/sql/ipv4-i-ipv6-chto-eto-i-v-chem-raznica/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> IPv6 решает проблему дефицита адресов IPv4, предоставляя настолько большое пространство, что даже при экспоненциальном росте интернета вещей (IoT) и мобильных устройств нехватка адресов маловероятна. Это способствует упрощению сетевой архитектуры, поскольку отпадает необходимость в сложных схемах трансляции адресов (NIST SP 800-119, "Guidelines for the Secure Deployment of IPv6").Источник:https://community.fs.com/ru/article/ipv4-vs-ipv6-whats-the-difference.html</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Благодаря огромному количеству адресов IPv6: Каждое устройство может иметь публичный IP (холодильник, датчик умного дома, телефон), что упрощает прямое подключение без NAT. Упрощается развертывание IoT – миллиарды датчиков в умных городах или промышленности могут работать без ограничений. Исчезает проблема "перекрытия" приватных сетей – в IPv4 две компании могли использовать одинаковые подсети (например, 192.168.1.0/24), что вызывало конфликты при VPN-подключениях. В IPv6 такие ситуации исключены.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Префикс FE80::/10</div>
+<div class="field"><span class="field-title">Определение:</span> Это префикс для LLA-адресов, используемых в пределах локального канала. Он зарезервирован и не маршрутизируется. Устройства с такими адресами могут обмениваться данными на одном канале.https://www.ibm.com/docs/ru/i/7.3.0?topic=concepts-ipv6-address-types</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> FE80::/10 — это зарезервированный диапазон IPv6-адресов для link-local адресов. Эти адреса автоматически назначаются интерфейсам и используются только внутри одного канального сегмента. Они не могут быть маршрутизированы между сетями. Префикс указывает на ограниченный радиус действия адреса — только «по соседству».https://ru.wikipedia.org/wiki/Link-local_address</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXszwPt1Aj4MBfhQDCY_1jPs_psloNVhO6ZWx7wM64AJQy9PlyreZyFm6f-5oVWzgUUEzyhhIeOI2Stti1CemWuNPTK0ubLxYOheGV0_uUI2TEke4c3tEt3RIqyx-U9A0_t37TV6YgtCbsuDLeNWLh7QM8m45hvtbA=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Для меня FE80::/10 — это как коротковолновая рация, работающая только на один дом или этаж. Всё, что передаётся по этим адресам, остаётся внутри одного узла или сегмента. Я их вижу в любой IPv6-сети, даже если нет глобального адреса — они всегда там. Особенно полезны, когда сеть только поднимается или нужно наладить базовую связь.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Префикс FF00::/8</div>
+<div class="field"><span class="field-title">Определение:</span> Это диапазон многоадресных адресов IPv6. Используется для отправки сообщений группе устройств. Определяет флаги и область действия.https://ciscotips.ru/ipv6-addresses</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> FF00::/8 — это диапазон IPv6-адресов, зарезервированных для multicast-адресации. Эти адреса позволяют доставлять пакеты сразу нескольким получателям, входящим в определённую группу. Используются для распределения данных, таких как стримы, обновления или сервисные сообщения. Multicast помогает экономить пропускную способность.https://gclnk.com/5HPVoCCz</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xV63P4c5lJyrQ84ukoAFvxxBLb8Pgm0en8Oins0sPAhQ-itxFVH2NTZ3waJUoFvU0yQR77E2RoUAo0fPjmwtKe7SV9NJNHImzAnyQxq8J23cOXrtZG9R1RktAvHCS2hYDq4g2M4mw3MaoachoYj=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> FF00::/8 для меня — это как групповая рассылка: говоришь один раз — слышат все, кому нужно. Я встречал multicast в IPv6 при работе с сервисами, где важно оповестить множество клиентов одновременно. Это удобно для обновлений или синхронизации. Главное — не путать с broadcast, которого в IPv6, кстати, вообще нет.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Префикс глобальной маршрутизации</div>
+<div class="field"><span class="field-title">Определение:</span> Это часть GUA, определяющая маршрут в интернет. Обычно предоставляется провайдером и состоит минимум из 45 бит. С его помощью формируется структура подсетей.https://kit68.ru/wp-content/uploads/2020/02/IPv6.pdf</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Префикс глобальной маршрутизации — это часть IPv6-адреса, указывающая на сеть и определяющая, как трафик маршрутизируется в глобальном интернете. Обычно такой адрес начинается с 2xxx::/3. Он позволяет устройствам быть доступными из любой точки интернета. Используется в адресах GUA.https://gclnk.com/gyuQVMsk</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWD7cj7RgM7Dv2SpWQQzAx8LgxJ7on8lhk8jU8b84aUgArvNMxAfdYGKusdmENIl31RofiAEmWl3hYKwCwC26zm5JzYfivhnD8UqwiMLH0W9nyc8rDqvevD8cGP0hUH92BJeqBRsMpoz7BDCUG8E1l2WHxT2e_pT4i2haOpIGE=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Этот префикс — как международный телефонный код: он говорит, откуда ты и как тебя найти в общем пространстве. Я сталкивался с ним при настройке публичных IPv6-сервисов. Такие адреса требуют осторожности — ведь устройство становится потенциально доступным извне. Это мощный инструмент, но требует и защиты.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Произвольный IPv6-адрес (Anycast)</div>
+<div class="field"><span class="field-title">Определение:</span> Произвольный (anycast) адрес — это адрес, назначенный множеству узлов, но пакеты доставляются только ближайшему. Используется для балансировки нагрузки и высокой доступности. https://tools.ietf.org/html/rfc4291</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Anycast — это способ адресации, при котором один IP-адрес может быть присвоен нескольким устройствам. При этом данные отправляются только к ближайшему (по маршруту) узлу из всех, использующих этот адрес. Это повышает производительность и отказоустойчивость сервисов. Anycast часто используется для балансировки нагрузки и оптимизации маршрутизации в сетях. https://ru.wikipedia.org/wiki/Anycast</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWPCi58uCKdfdR5UwbvH3Iq7saIENVQVJgmgE_Y1go0vxt-2K5GWTD4DyMfmHI2vwvyd-V80599q8vyb8CWNw6am220_uDIceNeiwI0VTtmghxBM-C0rNUlvgfmpX4tp5ED2SjNdH8ZcQau84x_flWuN-UZ5ypRVL9U0tw7Xhue8UmnAIM=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Я воспринимаю Anycast как «умную маршрутизацию», когда система сама выбирает, к какому из доступных серверов обратиться, исходя из оптимальности пути. Это очень удобно для глобальных сервисов, где важна скорость отклика, например, при обращении к DNS-серверам. Используя Anycast, можно обеспечить более стабильную и быструю работу приложений. Особенно важно это в больших распределённых системах.</div>
+</div>
+</div>
+<div class="letter-section" id="Р">
+<div class="letter-title">Р</div>
+<div class="term-entry">
+<div class="term-title">Разрешение адреса</div>
+<div class="field"><span class="field-title">Определение:</span> Это процесс определения физического (MAC) адреса устройства по его логическому (IP) адресу в локальной сети или наоборот. В IPv4 для этого используется протокол ARP (Address Resolution Protocol), а в IPv6 — NDP (Neighbor Discovery Protocol).</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "перевод" между разными типами сетевых адресов, позволяющий устройствам находить друг друга на канальном уровне (L2) при наличии только сетевого адреса (L3).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVB_3pPukTP9D5HI8tcu42wdFNzTTel9YRNJ0GV_KFxxUk5ZRlmyYfB_CD4lXon0InsL51LQgjdJQnma575QTMHUWbNS3Z7p2KLph2Nq7MTROn3MSK86VPtL-nmzRz-9-1412kR8TXOK0VPOw3iVAWcuc2cWqjjTIM=s365-w365-h139" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Разрешение адреса — это как поиск человека в толпе по имени: ARP (IPv4) — устройство кричит: "У кого IP 192.168.1.1? Скажите ваш MAC!", NDP (IPv6) — вместо ARP используется многофункциональный NDP (включает аналог ARP + SLAAC + DAD).</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Расширенные функции QoS</div>
+<div class="field"><span class="field-title">Определение:</span> IPv6 включает в себя улучшенные функции управления качеством обслуживания (Quality of Service, QoS). Это позволяет более эффективно управлять трафиком, обеспечивая приоритет для определенных типов данных (например, для видео). Источник:https://sky.pro/wiki/sql/ipv4-i-ipv6-chto-eto-i-v-chem-raznica/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Расширенные функции QoS — это методы, позволяющие сетям динамически распределять ресурсы в соответствии с требованиями различных сервисов, таких как VoIP, потоковое видео или облачные приложения. Они могут включать DiffServ, IntServ, MPLS-TE и другие протоколы для обеспечения минимальных задержек, потерь пакетов и джиттера. Источник: Tanenbaum, A. S. "Computer Networks."</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Расширенные функции QoS — это методы, позволяющие сетям динамически распределять ресурсы в соответствии с требованиями различных сервисов, таких как VoIP, потоковое видео или облачные приложения. Они могут включать DiffServ, IntServ, MPLS-TE и другие протоколы для обеспечения минимальных задержек, потерь пакетов и джиттера. Источник: Tanenbaum, A. S. "Computer Networks."</div>
+</div>
+</div>
+<div class="letter-section" id="С">
+<div class="letter-title">С</div>
+<div class="term-entry">
+<div class="term-title">Сокращения IPv6-адресов:</div>
+<div class="field"><span class="field-title">Определение:</span> Основные правила:Можно опускать ведущие нули в каждом 16-битном сегменте (например, 0DB8 → DB8).Если весь сегмент состоит из нулей (0000), нужно оставить минимум один ноль (0).Конечные нули в сегменте нельзя удалять (например, 0800 нельзя сократить до 8).Сокращение последовательных нулевых сегментов:Одна или несколько групп 0000 подряд могут быть заменены на двойное двоеточие ::.Важно: :: можно использовать только один раз в адресе.Примеры сокращений:0000:0000:0000:0000:0000:0000:0000:0001 = ::12001:0DB8:0000:0000:FB00:1400:5000:45FF = 2001:DB8::FB00:1400:5000:45FF2001:0DB8:0000:0000:0000:2A2A:0000:0001 = 2001:DB8::2A2A:0:1 Источник:https://habr.com/ru/articles/546814/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Адрес протокола IPv6 состоит из 128 бит и записывается обычно в шестнадцатеричном виде. Адрес разбиваются на блоки по 16 бит (хекстеты) и каждый блок представляется четырьмя шестнадцатеричными цифрами. Хекстеты разделяются знаком двоеточия. Таким образом, адрес получается достаточно длинным – он состоит из 32 шестнадцатеричных цифр и 7 знаков двоеточия.Для того чтобы сократить данный адрес надо последовательно применить два правила. 1. В каждом хекстете (группе из 4-х цифр) ведущие нули удаляются. 2.В адрес выбирается одна самая длинная группа, состоящая из полностью нулевых хекстетов, то есть самая длинная последовательность «:0:0:0:» и заменяется на два двоеточия «::».Источник: https://ciscotips.ru/ipv6-notation</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXGA1R5gX-ni1-NDTrjzTI8oIaHxMFcIDOHIbCMAC37EIOz5VJlwbgMNKKNqTYQU_P121mCeyWZrbcDirSm6FA3ZwovrU9vulW9hH94iXwNKJlsn7Y04EoPq3vBzeCS0KJX0F-W0fxLW4mzPTooRIjgkTCvtfnQeqkZSPeTdN3KhUXb5XAaYHrS9GQH93YB6pWI8ZWRZeanHQ=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Cокращение IPv6 — как удаление лишних пробелов в тексте: например, адрес fe80:0000:0000:0000:a299:9bff:fe12:3456 превращается в компактный fe80::a299:9bff:fe12:3456. Однако важно помнить, что :: можно использовать только один раз в адресе, иначе возникнет неоднозначность. Это особенно полезно в конфигах, где короткая запись экономит место и снижает риск ошибок.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Статические адреса</div>
+<div class="field"><span class="field-title">Определение:</span> Это IP- или MAC-адреса, которые назначаются устройству вручную и не изменяются автоматически в отличие от динамических адресов, получаемых через DHCP или другие протоколы автоматической конфигурации.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это фиксированные сетевые идентификаторы, жестко прописанные в настройках устройства и остающиеся неизменными до тех пор, пока администратор не изменит их вручную.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xW7tbFJt7OatRSmJ9yRo0a-A-8EtPAFvVvlras6dXeSgkETDt0_1ZDWKJBQJFPQff_pHVr7ntgwQ9gK8EDn9Crooaz7yJcdnRFi7I7-m7frVQ=s365-w365-h136" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Статические адреса — это как "прописка" устройства в сети. Они используются там, где важно, чтобы сетевое имя устройства не менялось со временем.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Статический GUA IPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Это фиксированный, вручную назначенный глобально уникальный IPv6-адрес из диапазона 2000::/3, который не изменяется автоматически и не зависит от механизмов SLAAC или DHCPv6. Такой адрес используется для постоянной идентификации устройства в глобальной сети IPv6.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это неизменяемый IPv6-адрес, который администратор сети явно прописывает в настройках интерфейса устройства, обеспечивая его постоянную доступность в интернете или корпоративной сети без использования автоматической адресации.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXtTSX9r9F3r1fXBQ9eL2OjBp2AKdEIQ2HOnBkyVQfiQFwN7SB_DP8mQ0BClW_FbAbtWutKv-bf-gNah1lOwjpwZXZ8vQ5oRf30BDw3XXZe7exECaQsTelrga0uHOSat-paxthjVkFg-Ax-zj4jQ2refnV4p1KC491zn1aoJ_4-Jog0Hqc4Ro-Mupg=s365-w365-h144" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Статический GUA IPv6 — это как "прописка" устройства в IPv6-сети. В отличие от временных адресов (SLAAC, DHCPv6), он не меняется, что полезно для: Серверов, Сетевого оборудования, Удалённого управления.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Статический маршрут</div>
+<div class="field"><span class="field-title">Определение:</span> Это явно прописанное в таблице маршрутизации правило, которое вручную задаёт путь передачи сетевого трафика до определённой подсети или узла, без использования динамических протоколов маршрутизации (таких как OSPF, BGP или RIP).</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это фиксированный "указатель" в маршрутизаторе, жёстко определяющий, через какой интерфейс или следующий хоп (next-hop) должен отправляться пакет в заданную сеть, независимо от изменений топологии сети.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXv9uupAAECEFuuHyFMR59et30-6IlJM0MBfgb1K5Sgwf-xkQJwqswUmxSZGE5bxZlgLUbjHhwk8Dex-GA77-TGZmp8E-ZnaBJ8lVk0GgxfOfN5GD9MlIXSiklctwcItY_2Bv1GYgBJrz48gjdFu0i9KuBerA=s365-w365-h166" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Статический маршрут — как поезд, идущий по фиксированному расписанию: если путь перекрыт, он не найдёт объезд сам, пока диспетчер (админ) не перенаправит его. В отличие от "умного такси" (динамической маршрутизации), которое само выбирает дорогу с учётом пробок.</div>
+</div>
+</div>
+<div class="letter-section" id="Ф">
+<div class="letter-title">Ф</div>
+<div class="term-entry">
+<div class="term-title">Фиксированный заголовок пакета</div>
+<div class="field"><span class="field-title">Определение:</span> Это стандартизированная, неизменяемая часть структуры сетевого пакета, содержащая обязательные поля, необходимые для его обработки сетевым оборудованием. Включает базовую служебную информацию, такую как адреса отправителя и получателя, тип протокола, контрольные суммы и другие ключевые параметры маршрутизации.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "паспорт" пакета, в котором указаны его основные характеристики, гарантирующие корректную доставку. Он всегда имеет строго определённый формат и размер, в отличие от переменных полей или полезной нагрузки (payload).</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xX2TpGyE4U3XBmd_ppjAvU3SKEVw4CVBx2v24nO2OezBfi8-_a-_fTS11zST1ctd4zvYLA3kvvA8Zgw7eXzf7g6_FcwNPUNBltKYy2SPTZdqFtmRRHsJYaP3c3caYGQVfCgEqdDxl3qJiQznT2mdOCBOEEx=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Фиксированный заголовок — это "шапка" пакета, которую анализируют маршрутизаторы и коммутаторы, чтобы понять, куда и как передавать данные.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Формат IPv4</div>
+<div class="field"><span class="field-title">Определение:</span> Формат IPv4:Длина: 32 бита, состоит из 4 сегментов по 8 бит, разделенных точками Каждый сегмент записывается в десятичной форме (числа от 0 до 255).Пример:  Полная форма: 192.168.001.001.Сокращённая форма: 192.168.1.1 Источник:https://timeweb.com/ru/community/articles/protokol-ipv4-chto-eto-takoe-i-kak-on-rabotaet</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Заголовок IPv4 проектировался для гибкости (поддержка опций) и обратной совместимости, но из-за этого содержит избыточные поля (например, контрольную сумму), которые замедляют обработку в высокоскоростных сетях.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xXUrlkx8kmxtXC53tmBvBEe4yPNGODisV_PFDDeyiiwVC61ZGP7LeMmfcBUk6h_on7vgWfI6xGve0b1Nk1GGK80eTFCC7yhDilFWpPiTXzt7lbii-i3tgb2Ne1Agf35zfA8thLCqSMY-rOCeWJDFceTZm2IlSU94g=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Заголовок IPv4 — это "конверт" для данных, где ключевые поля:    TTL предотвращает "блуждание" пакета (например, при петле маршрутизации).    Флаги и смещение нужны, если пакет делится на части (например, при MTU Ethernet = 1500 байт, а размер пакета — 3000 байт).    Контрольная сумма пересчитывается на каждом маршрутизаторе (из-за изменения TTL), что создает нагрузку.</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Формат IPv6</div>
+<div class="field"><span class="field-title">Определение:</span> Формат IPv6:Длина: 128 бит (в 4 раза больше IPv4).Состоит из 8 сегментов по 16 бит, разделенных двоеточиями.Каждый сегмент записывается в шестнадцатеричной форме (цифры 0-9 и буквы A-F).Регистр букв неважен: A = a.Пример: 2001:0DB8:0000:0000:0008:0800:200C:417A Источник:https://www.ibm.com/docs/ru/i/7.3.0?topic=concepts-ipv6-address-formats</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> В отличие от предыдущей версии протокола, в IPv6 не применяются маски подсети, так как они получились бы очень длинными, вместо этого используется префикс. который записывается так же через слеш после адреса. Например, префикс /64 означает, что из 128 бит, первые 64 – это сеть, а оставшаяся часть (в данном случае вторые 64) – это хост. Префикс описывает, сколько бит в адресе используется под хранение информации о сети.Сам адрес записывают не в десятичном, а в шестнадцатеричном виде – так короче. Адрес разбивается на группы по 16 бит (хекстеты) и каждая группа представляется четырьмя шестнадцатеричными цифрами. Хекстеты отделяются друг от друга знаком двоеточия. Таким образом, адрес состоит из 8 хекстетов ([8 хекстетов]*[16 бит в хекстете]=[128 бит] – общая длина адреса).Истоничк:https://habr.com/ru/articles/210100/</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xU08ZInIW5iq_QBhmrV4hrMEttMhJZyeylsjGrEw5Kwe6iiGFac4vIB_S8Y0RL_H5THcErLg7Soe8SOBUtp5G3MbjdcWIImCwDOO2hURWgfGtidaxe-HtBTUCYqCqMhozrtn3vg=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> IPv6 — это эволюция IP с упрощенным заголовком и расширяемостью:    128-битные адреса (например, 2001:0db8:85a3::8a2e:0370:7334) решают проблему нехватки адресов.    Расширенные заголовки (например, для маршрутизации, шифрования) добавляются по необходимости, а не включаются в основной заголовок.    Метка потока позволяет маршрутизаторам обрабатывать трафик класса "видео" иначе, чем "электронная почта".</div>
+</div>
+<div class="term-entry">
+<div class="term-title">Формат Пакета</div>
+<div class="field"><span class="field-title">Определение:</span> Это стандартизированная структура данных, определяющая расположение и значение полей в сетевом пакете. Он включает заголовки (например, Ethernet, IP, TCP/UDP) и полезную нагрузку (payload), обеспечивая единый способ интерпретации данных сетевыми устройствами.</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Это "шаблон", по которому данные упаковываются для передачи по сети. Он задаёт правила, где находятся адреса отправителя и получателя, контрольные суммы, флаги и другие служебные параметры.</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUZq_eJy_O6TANX0zhWPQYxKBuY_2M1IeiN1UTfnSUngNVU8AHCQu1Y7ckwn5XIWV0vVpm065Pw5C5kJsj12W_IZ-i1WVPrA-rP3memsUFwmsDfbK1_4q4OKMrNY1q7oKhc1cv2AnbBvKedP9DS0H9_NL9gtzaFdGeX4_5xkA=s365-w365-h113" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Формат пакета — это "язык", на котором устройства обмениваются информацией. Например: Ethernet-кадр содержит MAC-адреса и тип инкапсулированного протокола (IPv4/IPv6), IP-пакет включает IP-адреса, TTL (срок жизни) и номер протокола (TCP/UDP/ICMP), TCP-сегмент добавляет порты, номера последовательностей и флаги (SYN/ACK).</div>
+</div>
+</div>
+<div class="letter-section" id="Ц">
+<div class="letter-title">Ц</div>
+<div class="term-entry">
+<div class="term-title">Целостность связь End-to-End (E2E)</div>
+<div class="field"><span class="field-title">Определение:</span> Целостность связь End-to-End (E2E) в контексте IPv6 подразумевает, что данные передаются непосредственно от отправителя к получателю без необходимости в промежуточных устройствах, которые могли бы изменять или обрабатывать данные. Источник:https://trueconf.ru/blog/wiki/skvoznoe-shifrovanie-e2ee</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Сквозное тестирование (End-to-end, E2E, Chain testing) — это вид тестирования, используемый для проверки программного обеспечения от начала до конца, а также его интеграцию с внешними интерфейсами. Цель сквозного тестирования состоит в проверке всего программного обеспечения на предмет зависимостей, целостности данных и связи с другими системами, интерфейсами и базами данных для проверки успешного выполнения полного производственного сценария.Источник:https://habr.com/ru/companies/otus/articles/681066/</div>
+<div class="field"><span class="field-title">Изображение:</span><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWCChIyAQFZOyQg24ewh_k3bRfg_U3BmDIijx39CsIPVy9g54Di0Ysq4-SuR6UwjhvGPw550YIAcAVTOu6yEIjR-zQyX1YQbEGKIAB2MXi6EdqpK0iUd6gb5zxXPqq-xd1vwgHPm9rBtGi_dEJaZVisgulJd8EIV4N5CGhffSNQhDaEMOkJ=s365-w365-h20" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" /></div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Сеть — это "труба", которая просто доставляет пакеты, а всю "интеллектуальную" работу делают клиент и сервер.</div>
+</div>
+</div>
+<div class="letter-section" id="Ш">
+<div class="letter-title">Ш</div>
+<div class="term-entry">
+<div class="term-title">Широковещательные штормы в результате зависимости от ARP</div>
+<div class="field"><span class="field-title">Определение:</span> Широковещательные штормы это ситуации в компьютерных сетях, когда большое количество широковещательных пакетов (broadcast packets) заполняет сеть, что может привести к ухудшению производительности или даже к полному отказу сети. Одной из причин широковещательных штормов может быть неправильное использование протокола ARP (Address Resolution Protocol). Источник:https://procloud.ru/blog/technologies/broadcast-storm/</div>
+<div class="field"><span class="field-title">Альтернативное определение:</span> Широковещательный шторм — это состояние сети, при котором широковещательные пакеты (включая ARP) бесконтрольно ретранслируются, создавая лавинообразный трафик и исчерпывая полосу пропускания. Это часто связано с некорректной настройкой коммутаторов или отсутствием механизмов подавления широковещательного трафика (IBM, "Network Broadcast Storms").</div>
+<div class="field"><span class="field-title">Персональное толкование или способ использования:</span> Широковещательные штормы из-за ARP возникают, когда устройство пытается найти MAC-адрес, но ответ не доходит или теряется, заставляя его отправлять запросы снова и снова. Например, если в локальной сети два коммутатора соединены петлей (без STP), ARP-запросы будут циркулировать бесконечно, перегружая сеть. Решение — включить STP (Spanning Tree Protocol) и ограничить широковещательные домены с помощью VLAN.</div>
+</div>
+</div>
+</body></html>
