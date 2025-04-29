@@ -32,7 +32,7 @@ def extract_table_data(html_content):
             if i < len(headers) and headers[i] == "Изображение":
                 img_tag = cell.find('img')
                 if img_tag and img_tag.has_attr('src'):
-                    img_html = f'<img src="{img_tag["src"]}" style="max-width:100%; height:auto; border:1px solid #ccc; padding:4px;" />'
+                    img_html = f'<img src="{img_tag["src"]}" style="max-width:70%; height:auto; border:1px solid #ccc; padding:4px;" />'
                     row_data.append(img_html)
                 else:
                     row_data.append('')  # No image
@@ -70,7 +70,7 @@ def generate_glossary_html(headers, data):
             '.term-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }',
             '.field { margin-left: 20px; margin-bottom: 10px; }',
             '.field-title { font-weight: bold; display: block; margin-bottom: 3px; }',
-            'img { max-width: 100%; height: auto; border: 1px solid #ccc; padding: 4px; }',
+            'img { max-width: 70%; height: auto; border: 1px solid #ccc; padding: 4px; }',
             '</style>',
             '</head><body>',
             '<h1>Глоссарий к лекции 19: Основы IPv6 </h1>',
