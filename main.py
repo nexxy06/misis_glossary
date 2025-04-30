@@ -122,4 +122,4 @@ def convert_google_sheet_html_to_glossary(input_path, output_path):
     print(f"Glossary saved to: {output_path}")
 
 # Example usage
-convert_google_sheet_html_to_glossary("old.html", "new.html")
+convert_google_sheet_html_to_glossary("Лист1.html", "new.html")
